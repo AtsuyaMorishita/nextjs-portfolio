@@ -1,7 +1,30 @@
 import Head from "next/head";
 import SecTitle from "./components/SecTitle";
+import { client } from "../../libs/client";
 
-export default function Home() {
+type blogType = {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  revisedAt: string;
+  title: string;
+  slug: string;
+  date: string;
+  category: {
+    id: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+    revisedAt: string;
+    category: string;
+    slug: string;
+  };
+  icon: string;
+  content: string;
+};
+
+export default function Home({ blogs }: blogType[]) {
   return (
     <>
       <Head>
@@ -12,7 +35,31 @@ export default function Home() {
       </Head>
       <main>
         <SecTitle title="new" />
+        <ul>
+          {blogs.map((blog: blogType) => (
+            <li key={blog.id}>
+              <a href={`blog/${blog.slug}`}>
+                <div>{blog.icon}</div>
+                <div>
+                  <span>{blog.date}</span>
+                  <h2>{blog.title}</h2>
+                  <span>{blog.category.category}</span>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
       </main>
     </>
   );
 }
+
+export const getStaticProps = async () => {
+  const data = await client.get({ endpoint: "blog" });
+
+  return {
+    props: {
+      blogs: data.contents,
+    },
+  };
+};
