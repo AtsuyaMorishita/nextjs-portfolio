@@ -22,5 +22,6 @@ const TitleWrap = styled.div`
 `;
 
 const TitleText = styled.h2`
+  font-size: 2rem;
   font-family: ${FONT.SUB};
 `;

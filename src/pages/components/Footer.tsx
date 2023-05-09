@@ -1,9 +1,14 @@
+import styled from "styled-components";
+
 const Footer = () => {
   return (
-    <footer>
+    <FooterArea>
       <p>@2023 atsuya morishita</p>
-    </footer>
+    </FooterArea>
   );
 };
-
 export default Footer;
+
+const FooterArea = styled.footer`
+  text-align: center;
+`;

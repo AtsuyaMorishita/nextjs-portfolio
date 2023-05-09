@@ -1,6 +1,7 @@
 import Head from "next/head";
 import SecTitle from "./components/SecTitle";
 import { client } from "../../libs/client";
+import BlogList from "./components/BlogList";
 
 type blogType = {
   id: string;
@@ -24,7 +25,7 @@ type blogType = {
   content: string;
 };
 
-export default function Home({ blogs }: blogType[]) {
+export default function Home({ blogs }: any) {
   return (
     <>
       <Head>
@@ -34,21 +35,8 @@ export default function Home({ blogs }: blogType[]) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <SecTitle title="new" />
-        <ul>
-          {blogs.map((blog: blogType) => (
-            <li key={blog.id}>
-              <a href={`blog/${blog.slug}`}>
-                <div>{blog.icon}</div>
-                <div>
-                  <span>{blog.date}</span>
-                  <h2>{blog.title}</h2>
-                  <span>{blog.category.category}</span>
-                </div>
-              </a>
-            </li>
-          ))}
-        </ul>
+        <SecTitle title="NEW" />
+        <BlogList blogs={blogs} />
       </main>
     </>
   );

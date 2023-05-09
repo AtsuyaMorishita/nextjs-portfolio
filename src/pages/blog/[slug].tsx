@@ -1,4 +1,5 @@
 import { client } from "../../../libs/client";
+import BlogDetail from "../components/BlogDetail";
 
 type blogType = {
   id: string;
@@ -22,25 +23,16 @@ type blogType = {
   content: string;
 };
 
-export default function BlogSlug({ blog }: blogType) {
-  return (
-    <main>
-      <span>{blog.date}</span>
-      <h1>{blog.title}</h1>
-      <span>{blog.category.category}</span>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `${blog.content}`,
-        }}
-      />
-    </main>
-  );
+export default function BlogSlug({ blog }: any) {
+  return <BlogDetail blog={blog} />;
 }
 
 export const getStaticPaths = async () => {
   const data = await client.get({ endpoint: "blog" });
 
-  const paths = data.contents.map((content: any) => `/blog/${content.slug}`);
+  const paths = data.contents.map(
+    (content: blogType) => `/blog/${content.slug}`
+  );
   return { paths, fallback: false };
 };
 
@@ -50,8 +42,6 @@ export const getStaticProps = async (context: any) => {
     endpoint: "blog",
     queries: { filters: `slug[equals]${paramSlug}` },
   });
-
-  console.log(data.contents);
 
   return {
     props: {
