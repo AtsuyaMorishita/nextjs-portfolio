@@ -11,4 +11,5 @@ export default Footer;
 
 const FooterArea = styled.footer`
   text-align: center;
+  padding: 30px 0;
 `;

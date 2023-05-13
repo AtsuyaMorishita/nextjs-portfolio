@@ -2,30 +2,11 @@ import Head from "next/head";
 import SecTitle from "./components/SecTitle";
 import { client } from "../../libs/client";
 import BlogList from "./components/BlogList";
+import fetchBlogData from "@/utils/fetchBLogData";
+import { blogType } from "../../types/microCms";
+import CategoryArea from "./components/CategoryArea";
 
-type blogType = {
-  id: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  revisedAt: string;
-  title: string;
-  slug: string;
-  date: string;
-  category: {
-    id: string;
-    createdAt: string;
-    updatedAt: string;
-    publishedAt: string;
-    revisedAt: string;
-    category: string;
-    slug: string;
-  };
-  icon: string;
-  content: string;
-};
-
-export default function Home({ blogs }: any) {
+export default function Home({ blogs, categories }: any) {
   return (
     <>
       <Head>
@@ -35,19 +16,38 @@ export default function Home({ blogs }: any) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <SecTitle title="NEW" />
-        <BlogList blogs={blogs} />
+        <BlogList blogs={blogs} categoryName="NEW" />
+        <CategoryArea categories={categories} />
       </main>
     </>
   );
 }
 
 export const getStaticProps = async () => {
-  const data = await client.get({ endpoint: "blog" });
+  const microCmsData = await client.get({ endpoint: "blog" });
+
+  /**
+   * 日付の形式を変換
+   */
+  const data = microCmsData.contents.map((elem: blogType) => {
+    const date = new Date(elem.date);
+    const formattedDate = `${date.getFullYear()}.${(date.getMonth() + 1)
+      .toString()
+      .padStart(2, "0")}.${date.getDate().toString().padStart(2, "0")}`;
+
+    return {
+      ...elem,
+      date: formattedDate,
+    };
+  });
+
+  //カテゴリ取得
+  const categoryArray = await client.get({ endpoint: "category" });
 
   return {
     props: {
-      blogs: data.contents,
+      blogs: data,
+      categories: categoryArray.contents,
     },
   };
 };

@@ -1,57 +1,32 @@
 import { COLOR } from "@/styles/variable";
 import Link from "next/link";
 import styled from "styled-components";
+import { blogType } from "../../../types/microCms";
+import SecTitle from "./SecTitle";
 
-type blogType = {
-  id: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  revisedAt: string;
-  title: string;
-  slug: string;
-  date: string;
-  category: {
-    id: string;
-    createdAt: string;
-    updatedAt: string;
-    publishedAt: string;
-    revisedAt: string;
-    category: string;
-    slug: string;
-  };
-  icon: string;
-  content: string;
-};
-
-const BlogList = ({ blogs }: any) => {
+const BlogList = ({ blogs, categoryName }: any) => {
   return (
-    <BlogListWrap>
-      {blogs.map((blog: blogType) => {
-        //日付の形式を変換
-        const date = new Date(blog.date);
-        const formattedDate = `${date.getFullYear()}.${(date.getMonth() + 1)
-          .toString()
-          .padStart(2, "0")}.${date.getDate().toString().padStart(2, "0")}`;
-
-        return (
+    <>
+      <SecTitle title={categoryName} />
+      <BlogListWrap>
+        {blogs.map((blog: blogType) => (
           <li key={blog.id}>
-            <BlogItemLink href={`blog/${blog.slug}`}>
+            <BlogItemLink href={`/blog/${blog.id}`}>
               <BlogItemIcon>
                 <span>{blog.icon}</span>
               </BlogItemIcon>
               <BlogItemInfo>
-                <BlogItemDate>{formattedDate}</BlogItemDate>
+                <BlogItemDate>{blog.date}</BlogItemDate>
                 <BlogItemTitle>{blog.title}</BlogItemTitle>
                 <BlogItemCategoryWrap>
-                  <BlogItemCategory>{blog.category.category}</BlogItemCategory>
+                  <BlogItemCategory>{blog.category.name}</BlogItemCategory>
                 </BlogItemCategoryWrap>
               </BlogItemInfo>
             </BlogItemLink>
           </li>
-        );
-      })}
-    </BlogListWrap>
+        ))}
+      </BlogListWrap>
+    </>
   );
 };
 export default BlogList;
@@ -91,10 +66,12 @@ const BlogItemDate = styled.span`
 
 const BlogItemTitle = styled.h2`
   font-size: 1.6rem;
+  margin-top: 5px;
 `;
 
 const BlogItemCategoryWrap = styled.div`
   text-align: right;
+  margin-top: 5px;
 `;
 
 const BlogItemCategory = styled.span`
