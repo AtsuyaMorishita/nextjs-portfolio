@@ -10,44 +10,45 @@ const MyAppList = ({ myApp }: any) => {
     <>
       <SecTitle title="MYAPP" />
       <AppList>
-        {myApp.map((elem: any) => (
-          <AppItem key={elem.id}>
-            <ImageWrap>
-              <ImageItem src={elem.img.url} fill alt={elem.title} />
-            </ImageWrap>
-            <AppInfoWrap>
-              <AppTitleWrap>
-                <AppTitle>{elem.title}</AppTitle>
-                <AppGitIcon href={elem.gitUrl} target="_blank">
-                  <GitHubIcon />
-                </AppGitIcon>
-              </AppTitleWrap>
-              <AppDesc
-                dangerouslySetInnerHTML={{
-                  __html: `${elem.desc}`,
-                }}
-              ></AppDesc>
-              <TechList>
-                {elem.tech.map((elem: any, index: number) => (
-                  <TechItem key={elem.index}>{elem.tech_name}</TechItem>
-                ))}
-              </TechList>
-              <AppLinkWrap>
-                <AppLinkItem>
-                  <AppLink href={elem.link} target="_blank">
-                    View More
-                    <Image
-                      src="/img/icon_link.png"
-                      width={24}
-                      height={24}
-                      alt="View More"
-                    />
-                  </AppLink>
-                </AppLinkItem>
-              </AppLinkWrap>
-            </AppInfoWrap>
-          </AppItem>
-        ))}
+        {myApp &&
+          myApp.map((elem: any) => (
+            <AppItem key={elem.id}>
+              <ImageWrap>
+                <ImageItem src={elem.img.url} fill alt={elem.title} />
+              </ImageWrap>
+              <AppInfoWrap>
+                <AppTitleWrap>
+                  <AppTitle>{elem.title}</AppTitle>
+                  <AppGitIcon href={elem.gitUrl} target="_blank">
+                    <GitHubIcon />
+                  </AppGitIcon>
+                </AppTitleWrap>
+                <AppDesc
+                  dangerouslySetInnerHTML={{
+                    __html: `${elem.desc}`,
+                  }}
+                ></AppDesc>
+                <TechList>
+                  {elem.tech.map((elem: any, index: number) => (
+                    <TechItem key={elem.index}>{elem.tech_name}</TechItem>
+                  ))}
+                </TechList>
+                <AppLinkWrap>
+                  <AppLinkItem>
+                    <AppLink href={elem.link} target="_blank">
+                      View More
+                      <Image
+                        src="/img/icon_link.png"
+                        width={24}
+                        height={24}
+                        alt="View More"
+                      />
+                    </AppLink>
+                  </AppLinkItem>
+                </AppLinkWrap>
+              </AppInfoWrap>
+            </AppItem>
+          ))}
       </AppList>
     </>
   );

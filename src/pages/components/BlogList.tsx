@@ -9,22 +9,23 @@ const BlogList = ({ blogs, categoryName }: any) => {
     <>
       <SecTitle title={categoryName} />
       <BlogListWrap>
-        {blogs.map((blog: blogType) => (
-          <li key={blog.id}>
-            <BlogItemLink href={`/blog/${blog.id}`}>
-              <BlogItemIcon>
-                <span>{blog.icon}</span>
-              </BlogItemIcon>
-              <BlogItemInfo>
-                <BlogItemDate>{blog.date}</BlogItemDate>
-                <BlogItemTitle>{blog.title}</BlogItemTitle>
-                <BlogItemCategoryWrap>
-                  <BlogItemCategory>{blog.category.name}</BlogItemCategory>
-                </BlogItemCategoryWrap>
-              </BlogItemInfo>
-            </BlogItemLink>
-          </li>
-        ))}
+        {blogs &&
+          blogs.map((blog: blogType) => (
+            <li key={blog.id}>
+              <BlogItemLink href={`/blog/${blog.id}`}>
+                <BlogItemIcon>
+                  <span>{blog.icon}</span>
+                </BlogItemIcon>
+                <BlogItemInfo>
+                  <BlogItemDate>{blog.date}</BlogItemDate>
+                  <BlogItemTitle>{blog.title}</BlogItemTitle>
+                  <BlogItemCategoryWrap>
+                    <BlogItemCategory>{blog.category.name}</BlogItemCategory>
+                  </BlogItemCategoryWrap>
+                </BlogItemInfo>
+              </BlogItemLink>
+            </li>
+          ))}
       </BlogListWrap>
     </>
   );

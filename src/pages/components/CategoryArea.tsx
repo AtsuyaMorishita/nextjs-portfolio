@@ -13,13 +13,14 @@ const CategoryArea = ({ categories }: Props) => {
     <CategorySection>
       <SecTitle title="CATEGORY" />
       <CategoryList>
-        {categories.map((elem) => (
-          <CategoryItem key={elem.id}>
-            <CategoryLink href={`/category/${elem.id}`}>
-              <span>{elem.name}</span>
-            </CategoryLink>
-          </CategoryItem>
-        ))}
+        {categories &&
+          categories.map((elem) => (
+            <CategoryItem key={elem.id}>
+              <CategoryLink href={`/category/${elem.id}`}>
+                <span>{elem.name}</span>
+              </CategoryLink>
+            </CategoryItem>
+          ))}
       </CategoryList>
     </CategorySection>
   );

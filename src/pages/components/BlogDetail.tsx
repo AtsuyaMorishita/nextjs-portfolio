@@ -6,16 +6,16 @@ const BlogDetail = ({ blog }: any) => {
     <BlogDetailWrap>
       <BlogDetailArea>
         <BlogDetailIcon>
-          <span>{blog.icon}</span>
+          <span>{blog && blog.icon}</span>
         </BlogDetailIcon>
-        <span>{blog.date}</span>
-        <BlogDetailTitle>{blog.title}</BlogDetailTitle>
+        <span>{blog && blog.date}</span>
+        <BlogDetailTitle>{blog && blog.title}</BlogDetailTitle>
         <BlogDetailCategoryWrap>
           <BlogDetailCategory>
-            {blog.category.name && blog.category.name}
+            {blog && blog.category.name && blog && blog.category.name}
           </BlogDetailCategory>
         </BlogDetailCategoryWrap>
-        {blog.content && (
+        {blog && blog.content && (
           <BlogDetailContents
             dangerouslySetInnerHTML={{
               __html: `${blog.content}`,
