@@ -2,6 +2,7 @@ import styled from "styled-components";
 import SecTitle from "./SecTitle";
 import { categoryType } from "../../../types/microCms";
 import Link from "next/link";
+import { COLOR } from "@/styles/variable";
 
 type Props = {
   categories: categoryType[];
@@ -9,18 +10,43 @@ type Props = {
 
 const CategoryArea = ({ categories }: Props) => {
   return (
-    <section>
+    <CategorySection>
       <SecTitle title="CATEGORY" />
-      <ul>
+      <CategoryList>
         {categories.map((elem) => (
-          <li key={elem.id}>
-            <Link href={`/category/${elem.id}`}>
+          <CategoryItem key={elem.id}>
+            <CategoryLink href={`/category/${elem.id}`}>
               <span>{elem.name}</span>
-            </Link>
-          </li>
+            </CategoryLink>
+          </CategoryItem>
         ))}
-      </ul>
-    </section>
+      </CategoryList>
+    </CategorySection>
   );
 };
 export default CategoryArea;
+
+const CategorySection = styled.section`
+  margin-top: 30px;
+`;
+
+const CategoryList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 30px;
+  margin-top: 10px;
+`;
+
+const CategoryItem = styled.li`
+  width: 48%;
+  text-align: center;
+  margin: 0.3em 0;
+`;
+
+const CategoryLink = styled(Link)`
+  display: block;
+  background-color: ${COLOR.SECONDARY};
+  font-size: 14px;
+  padding: 0.5em;
+`;

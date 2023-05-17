@@ -2,17 +2,21 @@ import styled from "styled-components";
 import Footer from "./Footer";
 import Header from "./Header";
 import ContactLink from "./ContactLink";
+import SecProfile from "./SecProfile";
 
 type Props = {
   children: React.ReactNode;
+  isContact?: boolean;
+  isProfile?: boolean;
 };
 
-const Layout = ({ children }: Props) => {
+const Layout = ({ children, isContact, isProfile }: Props) => {
   return (
     <>
       <Header />
       <LayoutMain>{children}</LayoutMain>
-      <ContactLink />
+      {!isContact && !isProfile && <SecProfile />}
+      {!isContact && <ContactLink />}
       <Footer />
     </>
   );

@@ -4,6 +4,7 @@ import SecTitle from "../components/SecTitle";
 import BlogList from "../components/BlogList";
 import CategoryArea from "../components/CategoryArea";
 import { client } from "../../../libs/client";
+import Layout from "../components/Layout";
 
 export default function Home({ blogs, categories, categoryName }: any) {
   return (
@@ -14,10 +15,12 @@ export default function Home({ blogs, categories, categoryName }: any) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <BlogList blogs={blogs} categoryName={categoryName} />
-        <CategoryArea categories={categories} />
-      </main>
+      <Layout>
+        <main>
+          <BlogList blogs={blogs} categoryName={categoryName} />
+          <CategoryArea categories={categories} />
+        </main>
+      </Layout>
     </>
   );
 }

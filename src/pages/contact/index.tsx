@@ -2,6 +2,10 @@ import { FormContext } from "@/context/FormContext";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import styled from "styled-components";
+import Layout from "../components/Layout";
+import SecTitle from "../components/SecTitle";
+import { COLOR, FONT } from "@/styles/variable";
 
 type Inputs = {
   name: string;
@@ -26,25 +30,109 @@ export default function Contact() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="name">名前</label>
-      <input
-        id="name"
-        defaultValue={formData.name}
-        {...register("name", { required: true })}
-      />
-      {errors.name && <span>名前は必須項目です</span>}
+    <Layout isContact>
+      <SecTitle title="CONTACT" />
+      <FormList onSubmit={handleSubmit(onSubmit)}>
+        <FormItem>
+          <FormLabel htmlFor="name">名前</FormLabel>
+          <FormInput
+            id="name"
+            defaultValue={formData.name}
+            {...register("name", { required: true })}
+          />
+          {errors.name && <span>名前を入力してください。</span>}
+        </FormItem>
 
-      <label>名前(カナ)</label>
-      <input defaultValue={formData.nameKana} {...register("nameKana")} />
+        <FormItem>
+          <FormLabel htmlFor="nameKana">名前(カナ)</FormLabel>
+          <FormInput
+            id="nameKana"
+            defaultValue={formData.nameKana}
+            {...register("nameKana")}
+          />
+        </FormItem>
 
-      <label>メールアドレス</label>
-      <input defaultValue={formData.email} {...register("email")} />
+        <FormItem>
+          <FormLabel htmlFor="email">メールアドレス</FormLabel>
+          <FormInput
+            id="email"
+            defaultValue={formData.email}
+            {...register("email")}
+          />
+          {/* {errors.email && <span>メールアドレスを入力してください。</span>} */}
+        </FormItem>
 
-      <label>お問い合わせ内容</label>
-      <textarea defaultValue={formData.content} {...register("content")} />
+        <FormItem>
+          <FormLabel>お問い合わせ内容</FormLabel>
+          <FormTextArea
+            defaultValue={formData.content}
+            {...register("content")}
+          />
+          {/* {errors.content && <span>お問い合わせ内容を必須項目です</span>} */}
+        </FormItem>
 
-      <button type="submit">入力内容を確認する</button>
-    </form>
+        <FormButtonWrap>
+          <FormButton type="submit">入力内容を確認する</FormButton>
+        </FormButtonWrap>
+      </FormList>
+    </Layout>
   );
 }
+
+const FormList = styled.form`
+  padding: 0 30px;
+  margin: 20px auto 50px;
+`;
+
+const FormItem = styled.div`
+  &:not(:first-of-type) {
+    margin-top: 20px;
+  }
+`;
+
+const FormLabel = styled.label`
+  display: block;
+  margin-bottom: 5px;
+`;
+
+const FormInput = styled.input`
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border: none;
+  background-color: #fff;
+  padding: 1em 0.5em;
+  font-size: 1.4rem;
+  box-sizing: border-box;
+  color: ${COLOR.BLACK};
+`;
+
+const FormTextArea = styled.textarea`
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border: none;
+  background-color: #fff;
+  padding: 1em 0.5em;
+  font-size: 1.4rem;
+  box-sizing: border-box;
+  color: ${COLOR.BLACK};
+  min-height: 150px;
+`;
+
+const FormButtonWrap = styled.div`
+  text-align: center;
+  margin-top: 30px;
+`;
+
+const FormButton = styled.button`
+  display: inline-block;
+  font-size: 1.4rem;
+  background-color: ${COLOR.SECONDARY};
+  border: 1px solid ${COLOR.SUBCOLOR};
+  color: ${COLOR.BLACK};
+  width: 250px;
+  max-width: 100%;
+  height: 48px;
+  font-family: ${FONT.MAIN};
+`;

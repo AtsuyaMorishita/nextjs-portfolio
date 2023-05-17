@@ -1,9 +1,9 @@
 import Head from "next/head";
-import { client } from "../../libs/client";
-import MyAppList from "./components/MyAppList";
+import SecTitle from "./components/SecTitle";
 import Layout from "./components/Layout";
+import SecProfile from "./components/SecProfile";
 
-export default function Home({ myApps }: any) {
+export default function Profile() {
   return (
     <>
       <Head>
@@ -12,21 +12,11 @@ export default function Home({ myApps }: any) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
+      <Layout isProfile>
         <main>
-          <MyAppList myApp={myApps} />
+          <SecProfile isProfilePage />
         </main>
       </Layout>
     </>
   );
 }
-
-export const getStaticProps = async () => {
-  const microCmsData = await client.get({ endpoint: "works" });
-
-  return {
-    props: {
-      myApps: microCmsData.contents,
-    },
-  };
-};
