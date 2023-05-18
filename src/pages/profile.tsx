@@ -2,6 +2,8 @@ import Head from "next/head";
 import SecTitle from "./components/SecTitle";
 import Layout from "./components/Layout";
 import SecProfile from "./components/SecProfile";
+import styled from "styled-components";
+import { COLOR } from "@/styles/variable";
 
 export default function Profile() {
   return (
@@ -15,8 +17,52 @@ export default function Profile() {
       <Layout isProfile>
         <main>
           <SecProfile isProfilePage />
+          <ProfileList>
+            <ProfileItem>
+              <ProfileInfoTitle>SKILL</ProfileInfoTitle>
+              <ProfileInfoText>
+                簡単なプロフィール文が入ります。簡単なプロフィール文が入ります。簡単なプロフィール文が入ります。簡単なプロフィール文が入ります。簡単なプロフィール文が入ります。簡単なプロフィール文が入ります。
+              </ProfileInfoText>
+            </ProfileItem>
+
+            <ProfileItem>
+              <ProfileInfoTitle>HISTORY</ProfileInfoTitle>
+              <ProfileInfoText>
+                簡単なプロフィール文が入ります。簡単なプロフィール文が入ります。簡単なプロフィール文が入ります。簡単なプロフィール文が入ります。簡単なプロフィール文が入ります。簡単なプロフィール文が入ります。
+              </ProfileInfoText>
+            </ProfileItem>
+
+            <ProfileItem>
+              <ProfileInfoTitle>HOBBY</ProfileInfoTitle>
+              <ProfileInfoText>
+                簡単なプロフィール文が入ります。簡単なプロフィール文が入ります。簡単なプロフィール文が入ります。簡単なプロフィール文が入ります。簡単なプロフィール文が入ります。簡単なプロフィール文が入ります。
+              </ProfileInfoText>
+            </ProfileItem>
+          </ProfileList>
         </main>
       </Layout>
     </>
   );
 }
+
+const ProfileList = styled.ul`
+  display: grid;
+  gap: 45px;
+  padding: 0 40px;
+  margin-top: 40px;
+`;
+
+const ProfileItem = styled.li``;
+
+const ProfileInfoTitle = styled.span`
+  display: inline-block;
+  font-size: 16px;
+  background-color: ${COLOR.SECONDARY};
+  padding: 2px 20px;
+  font-weight: bold;
+`;
+
+const ProfileInfoText = styled.p`
+  font-size: 16px;
+  margin-top: 10px;
+`;
