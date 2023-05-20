@@ -93,8 +93,12 @@ const ProfileImage = styled(Image)`
 
 const ProfileTitle = styled.h2`
   text-align: center;
-  margin-top: 10px;
   font-size: 1.8rem;
+  margin-top: 10px;
+
+  ${mediaQuery[1]} {
+    font-size: 2rem;
+  }
 `;
 
 const ProfileText = styled.p`

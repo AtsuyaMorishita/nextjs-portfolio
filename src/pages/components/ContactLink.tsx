@@ -1,4 +1,5 @@
 import { COLOR, FONT } from "@/styles/variable";
+import { mediaQuery } from "@/utils/breakpoints";
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
@@ -38,4 +39,9 @@ const LinkContact = styled(Link)`
   font-size: 2rem;
   font-weight: bold;
   padding: 35px 0;
+
+  ${mediaQuery[1]} {
+    font-size: 2.6rem;
+    padding: 50px 0;
+  }
 `;

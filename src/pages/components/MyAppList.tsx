@@ -5,11 +5,13 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import { COLOR } from "@/styles/variable";
 import Link from "next/link";
 import { mediaQuery } from "@/utils/breakpoints";
+import SecLead from "./SecLead";
 
 const MyAppList = ({ myApp }: any) => {
   return (
     <>
       <SecTitle title="MYAPP" />
+      <SecLead text="個人学習で作成した制作物を紹介" />
       <AppList>
         {myApp &&
           myApp.map((elem: any) => (
@@ -57,7 +59,7 @@ const MyAppList = ({ myApp }: any) => {
 export default MyAppList;
 
 const AppList = styled.ul`
-  margin-top: 10px;
+  margin-top: 30px;
   display: grid;
   gap: 30px;
   max-width: 1000px;

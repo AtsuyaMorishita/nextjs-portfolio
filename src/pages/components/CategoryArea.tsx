@@ -36,7 +36,6 @@ const CategoryList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 0 30px;
   margin: 10px auto 0;
   max-width: 400px;
 `;
@@ -45,10 +44,6 @@ const CategoryItem = styled.li`
   width: 48%;
   text-align: center;
   margin: 0.3em 0;
-
-  ${mediaQuery[1]} {
-    width: 100%;
-  }
 `;
 
 const CategoryLink = styled(Link)`

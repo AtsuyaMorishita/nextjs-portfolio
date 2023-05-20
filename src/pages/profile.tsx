@@ -4,6 +4,8 @@ import Layout from "./components/Layout";
 import SecProfile from "./components/SecProfile";
 import styled from "styled-components";
 import { COLOR } from "@/styles/variable";
+import Image from "next/image";
+import { mediaQuery } from "@/utils/breakpoints";
 
 export default function Profile() {
   return (
@@ -16,7 +18,23 @@ export default function Profile() {
       </Head>
       <Layout isProfile>
         <main>
-          <SecProfile isProfilePage />
+          {/* <SecProfile isProfilePage /> */}
+          <SecTitle title="PROFILE" />
+          <ProfileLead>
+            <ProfileLeadImage>
+              <ProfileLeadImageItem src="/img/img_profile.jpg" alt="" fill />
+            </ProfileLeadImage>
+            <ProfileLeadInfo>
+              <ProfileLeadName>モリアツ</ProfileLeadName>
+              <ProfileLeadText>
+                愛知県出身。現在は山口県のWeb制作会社に勤務。
+                <br />
+                Next.jsなどモダンな技術を使ったWebアプリ開発に興味があります。
+                <br />
+                23年の夏までに東京に転職予定です。
+              </ProfileLeadText>
+            </ProfileLeadInfo>
+          </ProfileLead>
           <ProfileList>
             <ProfileItem>
               <ProfileInfoTitle>SKILL</ProfileInfoTitle>
@@ -45,11 +63,51 @@ export default function Profile() {
   );
 }
 
+const ProfileLead = styled.div`
+  padding: 0 30px;
+  margin-top: 30px;
+
+  ${mediaQuery[0]} {
+    display: flex;
+    justify-content: center;
+  }
+`;
+const ProfileLeadInfo = styled.div``;
+const ProfileLeadText = styled.p`
+  margin: 10px auto 0;
+  max-width: 400px;
+
+  ${mediaQuery[0]} {
+    margin: 0;
+  }
+`;
+const ProfileLeadImage = styled.figure`
+  position: relative;
+  width: 250px;
+  height: 200px;
+  margin: 0 auto;
+  ${mediaQuery[0]} {
+    margin: 0;
+  }
+`;
+const ProfileLeadImageItem = styled(Image)`
+  object-fit: cover;
+`;
+const ProfileLeadName = styled.h2`
+  text-align: center;
+  font-size: 1.8rem;
+  margin-top: 10px;
+  ${mediaQuery[0]} {
+    text-align: left;
+  }
+`;
+
 const ProfileList = styled.ul`
   display: grid;
   gap: 45px;
   padding: 0 40px;
-  margin-top: 40px;
+  margin: 60px auto 0;
+  max-width: 800px;
 `;
 
 const ProfileItem = styled.li``;

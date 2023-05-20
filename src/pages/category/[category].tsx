@@ -5,6 +5,7 @@ import BlogList from "../components/BlogList";
 import CategoryArea from "../components/CategoryArea";
 import { client } from "../../../libs/client";
 import Layout from "../components/Layout";
+import Aside from "../components/Aside";
 
 export default function Home({ blogs, categories, categoryName }: any) {
   return (
@@ -15,11 +16,9 @@ export default function Home({ blogs, categories, categoryName }: any) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
-        <main>
-          <BlogList blogs={blogs} categoryName={categoryName} />
-          <CategoryArea categories={categories} />
-        </main>
+      <Layout isBlog>
+        <BlogList blogs={blogs} categoryName={categoryName} />
+        <Aside categories={categories} />
       </Layout>
     </>
   );

@@ -1,4 +1,4 @@
-import { FONT } from "@/styles/variable";
+import { COLOR, FONT } from "@/styles/variable";
 import styled from "styled-components";
 
 type Props = {
@@ -22,6 +22,8 @@ const TitleWrap = styled.div`
 `;
 
 const TitleText = styled.h2`
-  font-size: 2rem;
+  display: inline-block;
+  font-size: 2.2rem;
   font-family: ${FONT.SUB};
+  /* border-bottom: 3px solid ${COLOR.PRIMARY}; */
 `;

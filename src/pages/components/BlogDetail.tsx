@@ -1,20 +1,32 @@
 import { COLOR } from "@/styles/variable";
+import { mediaQuery } from "@/utils/breakpoints";
 import styled from "styled-components";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
 
 const BlogDetail = ({ blog }: any) => {
   return (
     <BlogDetailWrap>
       <BlogDetailArea>
-        <BlogDetailIcon>
-          <span>{blog && blog.icon}</span>
-        </BlogDetailIcon>
-        <span>{blog && blog.date}</span>
-        <BlogDetailTitle>{blog && blog.title}</BlogDetailTitle>
-        <BlogDetailCategoryWrap>
-          <BlogDetailCategory>
-            {blog && blog.category.name && blog && blog.category.name}
-          </BlogDetailCategory>
-        </BlogDetailCategoryWrap>
+        <BlogDetailTopWrap>
+          <BlogDetailLead>
+            <BlogDetailIcon>
+              <span>{blog && blog.icon}</span>
+            </BlogDetailIcon>
+            <BlogDetailTitle>{blog && blog.title}</BlogDetailTitle>
+          </BlogDetailLead>
+          <BlogDetailInfoWrap>
+            <BlogDetailDate>
+              <AccessTimeIcon />
+              {blog && blog.date}
+            </BlogDetailDate>
+            <BlogDetailCategoryWrap>
+              <BlogDetailCategory>
+                {blog && blog.category.name && blog && blog.category.name}
+              </BlogDetailCategory>
+            </BlogDetailCategoryWrap>
+          </BlogDetailInfoWrap>
+        </BlogDetailTopWrap>
+
         {blog && blog.content && (
           <BlogDetailContents
             dangerouslySetInnerHTML={{
@@ -32,22 +44,58 @@ const BlogDetailWrap = styled.div`
   padding: 0 15px;
 `;
 
+const BlogDetailLead = styled.div`
+  ${mediaQuery[0]} {
+    display: flex;
+    align-items: center;
+  }
+`;
+
+const BlogDetailTopWrap = styled.div`
+  max-width: 900px;
+`;
+
 const BlogDetailArea = styled.div`
   background-color: ${COLOR.WHITE};
   padding: 1em 1em 3em;
+  ${mediaQuery[1]} {
+    padding: 2em 3em 3em;
+  }
 `;
 
 const BlogDetailIcon = styled.div`
   font-size: 5rem;
   text-align: center;
+
+  ${mediaQuery[0]} {
+    margin-right: 10px;
+  }
+`;
+
+const BlogDetailInfoWrap = styled.div`
+  display: flex;
 `;
 
 const BlogDetailTitle = styled.h1`
   font-size: 1.8rem;
+  ${mediaQuery[1]} {
+    font-size: 2.2rem;
+  }
+`;
+
+const BlogDetailDate = styled.span`
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-right: 10px;
 `;
 
 const BlogDetailCategoryWrap = styled.div`
   text-align: right;
+  margin-top: 5px;
+  ${mediaQuery[1]} {
+    text-align: left;
+  }
 `;
 
 const BlogDetailCategory = styled.span`

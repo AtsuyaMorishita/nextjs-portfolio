@@ -34,5 +34,6 @@ const LayoutMain = styled.main<{ isBlog: boolean }>`
     max-width: 1240px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 180px;
   }
 `;
