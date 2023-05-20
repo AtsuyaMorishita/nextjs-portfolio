@@ -6,6 +6,7 @@ import fetchBlogData from "@/utils/fetchBLogData";
 import { blogType } from "../../types/microCms";
 import CategoryArea from "./components/CategoryArea";
 import Layout from "./components/Layout";
+import Aside from "./components/Aside";
 
 export default function Home({ blogs, categories }: any) {
   return (
@@ -16,11 +17,9 @@ export default function Home({ blogs, categories }: any) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
-        <main>
-          <BlogList blogs={blogs} categoryName="NEW" />
-          <CategoryArea categories={categories} />
-        </main>
+      <Layout isBlog>
+        <BlogList blogs={blogs} categoryName="NEW" />
+        <Aside categories={categories} />
       </Layout>
     </>
   );

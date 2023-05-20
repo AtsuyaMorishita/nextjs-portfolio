@@ -3,19 +3,21 @@ import Footer from "./Footer";
 import Header from "./Header";
 import ContactLink from "./ContactLink";
 import SecProfile from "./SecProfile";
+import { mediaQuery } from "@/utils/breakpoints";
 
 type Props = {
   children: React.ReactNode;
   isContact?: boolean;
   isProfile?: boolean;
+  isBlog?: boolean;
 };
 
-const Layout = ({ children, isContact, isProfile }: Props) => {
+const Layout = ({ children, isContact, isProfile, isBlog = false }: Props) => {
   return (
     <>
       <Header />
-      <LayoutMain>{children}</LayoutMain>
-      {!isContact && !isProfile && <SecProfile />}
+      <LayoutMain isBlog={isBlog}>{children}</LayoutMain>
+      {/* {!isContact && !isProfile && <SecProfile />} */}
       {!isContact && <ContactLink />}
       <Footer />
     </>
@@ -23,6 +25,14 @@ const Layout = ({ children, isContact, isProfile }: Props) => {
 };
 export default Layout;
 
-const LayoutMain = styled.main`
-  margin-top: 30px;
+const LayoutMain = styled.main<{ isBlog: boolean }>`
+  margin-top: 130px;
+
+  ${mediaQuery[1]} {
+    ${(props) =>
+      props.isBlog && `display: flex; justify-content: space-between;`}
+    max-width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;

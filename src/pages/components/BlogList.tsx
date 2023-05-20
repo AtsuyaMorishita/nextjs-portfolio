@@ -3,15 +3,16 @@ import Link from "next/link";
 import styled from "styled-components";
 import { blogType } from "../../../types/microCms";
 import SecTitle from "./SecTitle";
+import { mediaQuery } from "@/utils/breakpoints";
 
 const BlogList = ({ blogs, categoryName }: any) => {
   return (
-    <>
+    <BlogListArea>
       <SecTitle title={categoryName} />
       <BlogListWrap>
         {blogs &&
           blogs.map((blog: blogType) => (
-            <li key={blog.id}>
+            <BlogListItem key={blog.id}>
               <BlogItemLink href={`/blog/${blog.id}`}>
                 <BlogItemIcon>
                   <span>{blog.icon}</span>
@@ -24,23 +25,40 @@ const BlogList = ({ blogs, categoryName }: any) => {
                   </BlogItemCategoryWrap>
                 </BlogItemInfo>
               </BlogItemLink>
-            </li>
+            </BlogListItem>
           ))}
       </BlogListWrap>
-    </>
+    </BlogListArea>
   );
 };
 export default BlogList;
 
+const BlogListArea = styled.div`
+  margin: 0 auto;
+  ${mediaQuery[1]} {
+    width: calc(100% - 300px);
+  }
+`;
+
 const BlogListWrap = styled.ul`
   padding: 0 15px;
   margin: 10px auto 0;
+  max-width: 800px;
+  ${mediaQuery[0]} {
+    display: flex;
+    justify-content: space-between;
+  }
+`;
+
+const BlogListItem = styled.li`
+  ${mediaQuery[0]} {
+    width: 45%;
+  }
 `;
 
 const BlogItemLink = styled(Link)`
   display: block;
-  padding: 25px 0;
-  border-top: 1px solid ${COLOR.SUBCOLOR};
+  padding: 10px 0;
   display: flex;
   justify-content: space-between;
 `;
@@ -49,7 +67,7 @@ const BlogItemIcon = styled.div`
   width: 76px;
   height: 76px;
   background-color: ${COLOR.WHITE};
-  font-size: 37px;
+  font-size: 3.7rem;
   border-radius: 10px;
   display: flex;
   align-items: center;

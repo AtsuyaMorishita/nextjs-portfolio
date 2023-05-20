@@ -4,6 +4,7 @@ import styled from "styled-components";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { COLOR } from "@/styles/variable";
 import Link from "next/link";
+import { mediaQuery } from "@/utils/breakpoints";
 
 const MyAppList = ({ myApp }: any) => {
   return (
@@ -57,16 +58,23 @@ export default MyAppList;
 
 const AppList = styled.ul`
   margin-top: 10px;
+  display: grid;
+  gap: 30px;
+  max-width: 1000px;
+  ${mediaQuery[0]} {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+  }
 `;
 
 const AppItem = styled.li`
   max-width: 90%;
   margin: 0 auto;
-  border-bottom: 1px solid ${COLOR.SUBCOLOR};
-  padding-bottom: 30px;
-  &:not(:first-child) {
-    padding-top: 30px;
-  }
+  border: 1px solid ${COLOR.SUBCOLOR};
+  padding-bottom: 1em;
+  width: 100%;
 `;
 
 const ImageWrap = styled.figure`
@@ -77,7 +85,7 @@ const ImageWrap = styled.figure`
 
 const ImageItem = styled(Image)`
   object-fit: contain;
-  border: 1px solid ${COLOR.SECONDARY};
+  /* border: 1px solid ${COLOR.SECONDARY}; */
 `;
 
 const AppInfoWrap = styled.div`

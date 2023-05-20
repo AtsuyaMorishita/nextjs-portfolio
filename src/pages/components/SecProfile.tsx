@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import TwitterIcon from "@mui/icons-material/Twitter";
+import { mediaQuery } from "@/utils/breakpoints";
 
 type Props = {
   isProfilePage?: boolean;
@@ -63,6 +64,10 @@ export default SecProfile;
 
 const ProfileSection = styled.section`
   margin-top: 60px;
+
+  ${mediaQuery[1]} {
+    margin-top: 0;
+  }
 `;
 
 const ProfileWrap = styled.div`
@@ -72,9 +77,14 @@ const ProfileWrap = styled.div`
 
 const ProfileImageWrap = styled.figure`
   position: relative;
-  width: 80%;
-  height: 200px;
+  width: 50%;
+  height: 135px;
   margin: 10px auto 0;
+
+  ${mediaQuery[1]} {
+    width: 40%;
+    height: 100px;
+  }
 `;
 
 const ProfileImage = styled(Image)`
@@ -89,6 +99,12 @@ const ProfileTitle = styled.h2`
 
 const ProfileText = styled.p`
   margin-top: 10px;
+
+  ${mediaQuery[1]} {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
 
 const ProfileLinkWrap = styled.div`

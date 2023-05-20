@@ -56,13 +56,13 @@ const ProfileItem = styled.li``;
 
 const ProfileInfoTitle = styled.span`
   display: inline-block;
-  font-size: 16px;
+  font-size: 1.6rem;
   background-color: ${COLOR.SECONDARY};
   padding: 2px 20px;
   font-weight: bold;
 `;
 
 const ProfileInfoText = styled.p`
-  font-size: 16px;
+  font-size: 1.4rem;
   margin-top: 10px;
 `;

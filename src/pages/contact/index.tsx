@@ -82,6 +82,7 @@ export default function Contact() {
 const FormList = styled.form`
   padding: 0 30px;
   margin: 20px auto 50px;
+  max-width: 500px;
 `;
 
 const FormItem = styled.div`
@@ -118,6 +119,7 @@ const FormTextArea = styled.textarea`
   box-sizing: border-box;
   color: ${COLOR.BLACK};
   min-height: 150px;
+  font-family: ${FONT.MAIN};
 `;
 
 const FormButtonWrap = styled.div`
@@ -135,4 +137,5 @@ const FormButton = styled.button`
   max-width: 100%;
   height: 48px;
   font-family: ${FONT.MAIN};
+  cursor: pointer;
 `;

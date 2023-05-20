@@ -38,7 +38,7 @@ const BlogDetailArea = styled.div`
 `;
 
 const BlogDetailIcon = styled.div`
-  font-size: 50px;
+  font-size: 5rem;
   text-align: center;
 `;
 

@@ -80,6 +80,7 @@ export default function Confirm() {
 const FormList = styled.form`
   padding: 0 30px;
   margin: 20px auto 50px;
+  max-width: 500px;
 `;
 
 const FormItem = styled.div`
@@ -119,6 +120,7 @@ const FormButton = styled.button`
   max-width: 100%;
   height: 48px;
   font-family: ${FONT.MAIN};
+  cursor: pointer;
 `;
 
 const FormBackButton = styled(Link)`

@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const Header = () => {
   return (
-    <header>
+    <HeaderArea>
       <HeaderLogo>ATSUYA BLOG</HeaderLogo>
       <HeaderNavList>
         <HeaderNavItem>
@@ -17,10 +17,21 @@ const Header = () => {
           <HeaderNavLink href="/profile">PROFILE</HeaderNavLink>
         </HeaderNavItem>
       </HeaderNavList>
-    </header>
+    </HeaderArea>
   );
 };
 export default Header;
+
+const HeaderArea = styled.header`
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 1em 0;
+  border-bottom: 1px solid #5c93bb2b;
+`;
 
 const HeaderLogo = styled.span`
   display: block;
@@ -28,7 +39,6 @@ const HeaderLogo = styled.span`
   font-weight: bold;
   font-size: 2.2rem;
   font-family: ${FONT.SUB};
-  padding-top: 15px;
 `;
 
 const HeaderNavList = styled.ul`

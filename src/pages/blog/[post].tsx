@@ -1,5 +1,6 @@
 import { client } from "../../../libs/client";
 import { blogType } from "../../../types/microCms";
+import Aside from "../components/Aside";
 import BlogDetail from "../components/BlogDetail";
 import CategoryArea from "../components/CategoryArea";
 import Layout from "../components/Layout";
@@ -7,9 +8,9 @@ import Layout from "../components/Layout";
 export default function BlogSlug({ blog, categories }: any) {
   return (
     <>
-      <Layout>
+      <Layout isBlog>
         <BlogDetail blog={blog} />
-        <CategoryArea categories={categories} />
+        <Aside categories={categories} />
       </Layout>
     </>
   );
