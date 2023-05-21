@@ -18,7 +18,10 @@ export const Meta = ({ title, description }: MetaType) => {
       <meta property="og:title" content={metaTitle} />
       <meta property="description" content={metaDesc} />
       <meta property="og:description" content={metaDesc} />
-      <meta property="og:image" content={`/ogp_large.png`} />
+      <meta
+        property="og:image"
+        content={`${process.env.NEXT_PUBLIC_SITE_URL}/ogp_large.png`}
+      />
       <meta name="twitter:card" content="summary_large_image" />
       <meta httpEquiv="content-language" content="ja" />
       <meta name="theme-color" content={COLOR.BGMAIN} />
