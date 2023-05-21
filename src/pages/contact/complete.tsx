@@ -3,22 +3,27 @@ import Layout from "../components/Layout";
 import SecTitle from "../components/SecTitle";
 import styled from "styled-components";
 import { COLOR, FONT } from "@/styles/variable";
+import { Meta } from "../components/Meta";
+import { META_TITLE } from "@/data/meta";
 
 export default function Complete() {
   return (
-    <Layout isContact>
-      <SecTitle title="CONTACT" />
-      <FormCompWrap>
-        <FormCompText>
-          お問い合わせありがとうございます！
-          <br />
-          2.3営業日以内にご連絡いたします。
-        </FormCompText>
-        <FormCompLinkWrap>
-          <FormCompLink href={"/"}>TOPに戻る</FormCompLink>
-        </FormCompLinkWrap>
-      </FormCompWrap>
-    </Layout>
+    <>
+      <Meta title={META_TITLE.CONTACT} />
+      <Layout isContact>
+        <SecTitle title="CONTACT" />
+        <FormCompWrap>
+          <FormCompText>
+            お問い合わせありがとうございます！
+            <br />
+            2.3営業日以内にご連絡いたします。
+          </FormCompText>
+          <FormCompLinkWrap>
+            <FormCompLink href={"/"}>TOPに戻る</FormCompLink>
+          </FormCompLinkWrap>
+        </FormCompWrap>
+      </Layout>
+    </>
   );
 }
 

@@ -17,7 +17,7 @@ const BlogDetail = ({ blog }: any) => {
           <BlogDetailInfoWrap>
             <BlogDetailDate>
               <AccessTimeIcon />
-              {blog && blog.date}
+              <BlogDetailDateText>{blog && blog.date}</BlogDetailDateText>
             </BlogDetailDate>
             <BlogDetailCategoryWrap>
               <BlogDetailCategory>
@@ -78,6 +78,8 @@ const BlogDetailIcon = styled.div`
 
 const BlogDetailInfoWrap = styled.div`
   display: flex;
+  align-items: center;
+  margin-top: 5px;
 `;
 
 const BlogDetailTitle = styled.h1`
@@ -87,11 +89,16 @@ const BlogDetailTitle = styled.h1`
   }
 `;
 
-const BlogDetailDate = styled.span`
+const BlogDetailDate = styled.div`
   display: flex;
   align-items: center;
   margin-top: 10px;
   margin-right: 10px;
+`;
+
+const BlogDetailDateText = styled.span`
+  display: inline-block;
+  margin-left: 5px;
 `;
 
 const BlogDetailCategoryWrap = styled.div`

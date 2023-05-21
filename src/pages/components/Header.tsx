@@ -5,7 +5,9 @@ import styled from "styled-components";
 const Header = () => {
   return (
     <HeaderArea>
-      <HeaderLogo>ATSUYA BLOG</HeaderLogo>
+      <HeaderLogoWrap>
+        <HeaderLogo href={"/"}>ATSUYA BLOG</HeaderLogo>
+      </HeaderLogoWrap>
       <HeaderNavList>
         <HeaderNavItem>
           <HeaderNavLink href="/">BLOG</HeaderNavLink>
@@ -22,6 +24,10 @@ const Header = () => {
 };
 export default Header;
 
+const HeaderLogoWrap = styled.div`
+  text-align: center;
+`;
+
 const HeaderArea = styled.header`
   background-color: #fff;
   position: fixed;
@@ -33,8 +39,8 @@ const HeaderArea = styled.header`
   border-bottom: 1px solid #5c93bb2b;
 `;
 
-const HeaderLogo = styled.span`
-  display: block;
+const HeaderLogo = styled(Link)`
+  display: inline-block;
   text-align: center;
   font-weight: bold;
   font-size: 2.2rem;

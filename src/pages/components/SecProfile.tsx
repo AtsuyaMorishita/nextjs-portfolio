@@ -93,7 +93,7 @@ const ProfileText = styled.p`
   margin-top: 10px;
 
   ${mediaQuery[1]} {
-    width: 85%;
+    /* width: 85%; */
     margin-left: auto;
     margin-right: auto;
   }
@@ -102,7 +102,7 @@ const ProfileText = styled.p`
 const ProfileLinkWrap = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 20px;
 `;
 
 const ProfileIconWrap = styled.div`

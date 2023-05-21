@@ -27,11 +27,6 @@ const AsideArea = styled.aside`
 `;
 
 const AsideInner = styled.div`
-  border: 1px solid ${COLOR.SUBCOLOR};
+  border: 1px solid #1d1f202b;
   padding: 3em 1.5em;
-  ${mediaQuery[1]} {
-    border: none;
-    border-left: 1px solid ${COLOR.SUBCOLOR};
-    padding: 0 1.5em 2em;
-  }
 `;

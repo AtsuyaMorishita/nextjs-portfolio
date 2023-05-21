@@ -8,6 +8,8 @@ import Layout from "../components/Layout";
 import SecTitle from "../components/SecTitle";
 import styled from "styled-components";
 import { COLOR, FONT } from "@/styles/variable";
+import { Meta } from "../components/Meta";
+import { META_TITLE } from "@/data/meta";
 
 type Inputs = {
   name: string;
@@ -44,36 +46,39 @@ export default function Confirm() {
   };
 
   return (
-    <Layout isContact>
-      <SecTitle title="CONTACT" />
-      <FormList onSubmit={handleSubmit(onSubmit)}>
-        <FormItem>
-          <FormLabel>名前</FormLabel>
-          <FormText>{formData.name}</FormText>
-        </FormItem>
+    <>
+      <Meta title={META_TITLE.CONTACT} />
+      <Layout isContact>
+        <SecTitle title="CONTACT" />
+        <FormList onSubmit={handleSubmit(onSubmit)}>
+          <FormItem>
+            <FormLabel>名前</FormLabel>
+            <FormText>{formData.name}</FormText>
+          </FormItem>
 
-        <FormItem>
-          <FormLabel>名前(カナ)</FormLabel>
-          <FormText>{formData.nameKana}</FormText>
-        </FormItem>
+          <FormItem>
+            <FormLabel>名前(カナ)</FormLabel>
+            <FormText>{formData.nameKana}</FormText>
+          </FormItem>
 
-        <FormItem>
-          <FormLabel>メールアドレス</FormLabel>
-          <FormText>{formData.email}</FormText>
-        </FormItem>
+          <FormItem>
+            <FormLabel>メールアドレス</FormLabel>
+            <FormText>{formData.email}</FormText>
+          </FormItem>
 
-        <FormItem>
-          <FormLabel>お問い合わせ内容</FormLabel>
-          <FormPre>{formData.content}</FormPre>
-        </FormItem>
+          <FormItem>
+            <FormLabel>お問い合わせ内容</FormLabel>
+            <FormPre>{formData.content}</FormPre>
+          </FormItem>
 
-        <FormButtonWrap>
-          <FormButton type="submit">送信する</FormButton>
-        </FormButtonWrap>
+          <FormButtonWrap>
+            <FormButton type="submit">送信する</FormButton>
+          </FormButtonWrap>
 
-        <FormBackButton href={"/contact"}>←内容を修正する</FormBackButton>
-      </FormList>
-    </Layout>
+          <FormBackButton href={"/contact"}>←内容を修正する</FormBackButton>
+        </FormList>
+      </Layout>
+    </>
   );
 }
 
