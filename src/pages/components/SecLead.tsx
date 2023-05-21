@@ -20,6 +20,7 @@ export default SecLead;
 
 const LeadWrap = styled.div`
   text-align: center;
+  margin-top: 15px;
 `;
 
 const LeadText = styled.h2`

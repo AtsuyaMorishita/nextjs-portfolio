@@ -30,10 +30,11 @@ const LayoutMain = styled.main<{ isBlog: boolean }>`
 
   ${mediaQuery[1]} {
     ${(props) =>
-      props.isBlog && `display: flex; justify-content: space-between;`}
+      props.isBlog &&
+      `display: flex; justify-content: space-between; padding: 0 30px;`}
     max-width: 1240px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 180px;
+    margin-top: 160px;
   }
 `;

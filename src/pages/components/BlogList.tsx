@@ -47,6 +47,7 @@ const BlogListWrap = styled.ul`
   ${mediaQuery[0]} {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
 `;
 

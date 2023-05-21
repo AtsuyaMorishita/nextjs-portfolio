@@ -42,6 +42,10 @@ export default BlogDetail;
 
 const BlogDetailWrap = styled.div`
   padding: 0 15px;
+  ${mediaQuery[1]} {
+    padding: 0;
+    width: calc(100% - 300px);
+  }
 `;
 
 const BlogDetailLead = styled.div`

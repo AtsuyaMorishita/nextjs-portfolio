@@ -17,3 +17,9 @@ export type categoryType = {
   name: string;
   slug: string;
 };
+
+//microCMSのブログから取得するカテゴリデータ
+export type blogGetCategory = {
+  catId: string;
+  catName: string;
+};

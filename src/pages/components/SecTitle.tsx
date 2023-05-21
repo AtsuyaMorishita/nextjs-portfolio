@@ -25,5 +25,6 @@ const TitleText = styled.h2`
   display: inline-block;
   font-size: 2.2rem;
   font-family: ${FONT.SUB};
-  /* border-bottom: 3px solid ${COLOR.PRIMARY}; */
+  border-bottom: 3px solid ${COLOR.PRIMARY};
+  line-height: 1.5em;
 `;

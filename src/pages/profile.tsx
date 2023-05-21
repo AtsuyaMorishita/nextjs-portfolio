@@ -1,7 +1,6 @@
 import Head from "next/head";
 import SecTitle from "./components/SecTitle";
 import Layout from "./components/Layout";
-import SecProfile from "./components/SecProfile";
 import styled from "styled-components";
 import { COLOR } from "@/styles/variable";
 import Image from "next/image";
@@ -18,7 +17,6 @@ export default function Profile() {
       </Head>
       <Layout isProfile>
         <main>
-          {/* <SecProfile isProfilePage /> */}
           <SecTitle title="PROFILE" />
           <ProfileLead>
             <ProfileLeadImage>
@@ -70,32 +68,42 @@ const ProfileLead = styled.div`
   ${mediaQuery[0]} {
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 `;
-const ProfileLeadInfo = styled.div``;
+
+const ProfileLeadInfo = styled.div`
+  ${mediaQuery[0]} {
+    /* width: calc(100% - 200px); */
+  }
+`;
+
 const ProfileLeadText = styled.p`
   margin: 10px auto 0;
-  max-width: 400px;
+  max-width: 450px;
 
   ${mediaQuery[0]} {
-    margin: 0;
+    margin: 5px auto 0;
+    font-size: 1.6rem;
   }
 `;
 const ProfileLeadImage = styled.figure`
   position: relative;
-  width: 250px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   margin: 0 auto;
   ${mediaQuery[0]} {
     margin: 0;
+    margin-right: 30px;
   }
 `;
 const ProfileLeadImageItem = styled(Image)`
   object-fit: cover;
+  border-radius: 50%;
 `;
 const ProfileLeadName = styled.h2`
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-top: 10px;
   ${mediaQuery[0]} {
     text-align: left;

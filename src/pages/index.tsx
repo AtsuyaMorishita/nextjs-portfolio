@@ -43,13 +43,18 @@ export const getStaticProps = async () => {
     };
   });
 
-  //カテゴリ取得
-  const categoryArray = await client.get({ endpoint: "category" });
+  //サイドバー カテゴリ用
+  const categories = data.map((elem: any) => {
+    return {
+      catId: elem.category.id,
+      catName: elem.category.name,
+    };
+  });
 
   return {
     props: {
       blogs: data,
-      categories: categoryArray.contents,
+      categories: categories,
     },
   };
 };

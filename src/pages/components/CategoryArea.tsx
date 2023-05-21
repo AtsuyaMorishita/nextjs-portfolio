@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import SecTitle from "./SecTitle";
-import { categoryType } from "../../../types/microCms";
+import { blogGetCategory, categoryType } from "../../../types/microCms";
 import Link from "next/link";
 import { COLOR } from "@/styles/variable";
 import { mediaQuery } from "@/utils/breakpoints";
 
 type Props = {
-  categories: categoryType[];
+  categories: blogGetCategory[];
 };
 
 const CategoryArea = ({ categories }: Props) => {
@@ -16,9 +16,9 @@ const CategoryArea = ({ categories }: Props) => {
       <CategoryList>
         {categories &&
           categories.map((elem) => (
-            <CategoryItem key={elem.id}>
-              <CategoryLink href={`/category/${elem.id}`}>
-                <span>{elem.name}</span>
+            <CategoryItem key={elem.catId}>
+              <CategoryLink href={`/category/${elem.catId}`}>
+                <span>{elem.catName}</span>
               </CategoryLink>
             </CategoryItem>
           ))}
@@ -29,7 +29,9 @@ const CategoryArea = ({ categories }: Props) => {
 export default CategoryArea;
 
 const CategorySection = styled.section`
-  margin-top: 40px;
+  /* ${mediaQuery[1]} {
+    margin-top: 0;
+  } */
 `;
 
 const CategoryList = styled.ul`

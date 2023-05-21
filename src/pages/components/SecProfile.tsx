@@ -6,29 +6,22 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import { mediaQuery } from "@/utils/breakpoints";
 
-type Props = {
-  isProfilePage?: boolean;
-};
-
-const SecProfile = ({ isProfilePage }: Props) => {
+const SecProfile = () => {
   return (
     <ProfileSection>
-      <SecTitle title="PROFILE" />
+      {/* <SecTitle title="PROFILE" /> */}
       <ProfileWrap>
         <ProfileImageWrap>
           <ProfileImage src="/img/img_profile.jpg" fill alt="profile" />
         </ProfileImageWrap>
         <ProfileTitle>モリアツ</ProfileTitle>
-        {!isProfilePage && (
-          <ProfileText>
-            ここはプロフィールセクション専用の説明です。ここはプロフィールセクション専用の説明です。
-          </ProfileText>
-        )}
-        {isProfilePage && (
-          <ProfileText>
-            ここはプロフィールページ専用の説明です。ここはプロフィールページ専用の説明です。
-          </ProfileText>
-        )}
+        <ProfileText>
+          愛知県出身。現在は山口県のWeb制作会社に勤務。
+          <br />
+          Next.jsなどモダンな技術を使ったWebアプリ開発に興味があります。
+          <br />
+          23年の夏までに東京に転職予定です。
+        </ProfileText>
         <ProfileLinkWrap>
           <ProfileIconWrap>
             <ProfileIcon
@@ -44,17 +37,15 @@ const SecProfile = ({ isProfilePage }: Props) => {
               <TwitterIcon />
             </ProfileIcon>
           </ProfileIconWrap>
-          {!isProfilePage && (
-            <ProfileLinkBtn href="/profile">
-              View More
-              <Image
-                src="/img/icon_link.png"
-                width={24}
-                height={24}
-                alt="View More"
-              />
-            </ProfileLinkBtn>
-          )}
+          <ProfileLinkBtn href="/profile">
+            View More
+            <Image
+              src="/img/icon_link.png"
+              width={24}
+              height={24}
+              alt="View More"
+            />
+          </ProfileLinkBtn>
         </ProfileLinkWrap>
       </ProfileWrap>
     </ProfileSection>
@@ -64,10 +55,6 @@ export default SecProfile;
 
 const ProfileSection = styled.section`
   margin-top: 60px;
-
-  ${mediaQuery[1]} {
-    margin-top: 0;
-  }
 `;
 
 const ProfileWrap = styled.div`
@@ -77,18 +64,19 @@ const ProfileWrap = styled.div`
 
 const ProfileImageWrap = styled.figure`
   position: relative;
-  width: 50%;
-  height: 135px;
+  width: 150px;
+  height: 150px;
   margin: 10px auto 0;
 
   ${mediaQuery[1]} {
-    width: 40%;
-    height: 100px;
+    width: 120px;
+    height: 120px;
   }
 `;
 
 const ProfileImage = styled(Image)`
   object-fit: cover;
+  border-radius: 50%;
 `;
 
 const ProfileTitle = styled.h2`
@@ -97,7 +85,7 @@ const ProfileTitle = styled.h2`
   margin-top: 10px;
 
   ${mediaQuery[1]} {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 `;
 

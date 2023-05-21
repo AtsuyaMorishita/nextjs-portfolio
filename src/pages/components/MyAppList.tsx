@@ -11,7 +11,7 @@ const MyAppList = ({ myApp }: any) => {
   return (
     <>
       <SecTitle title="MYAPP" />
-      <SecLead text="個人学習で作成した制作物を紹介" />
+      <SecLead text="個人学習で作成した制作物を紹介します" />
       <AppList>
         {myApp &&
           myApp.map((elem: any) => (
@@ -64,7 +64,10 @@ const AppList = styled.ul`
   gap: 30px;
   max-width: 1000px;
   ${mediaQuery[0]} {
+    gap: 0;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     margin-left: auto;
     margin-right: auto;
     padding: 0 20px;
@@ -77,6 +80,13 @@ const AppItem = styled.li`
   border: 1px solid ${COLOR.SUBCOLOR};
   padding-bottom: 1em;
   width: 100%;
+  ${mediaQuery[0]} {
+    width: calc(50% - 10px);
+    margin: 0 0 20px;
+  }
+  ${mediaQuery[1]} {
+    width: calc(33.3% - 13.33px);
+  }
 `;
 
 const ImageWrap = styled.figure`
@@ -117,6 +127,9 @@ const AppDesc = styled.div`
   margin-top: 10px;
   p {
     font-size: 1.2rem;
+    ${mediaQuery[0]} {
+      font-size: 1.4rem;
+    }
   }
 `;
 
