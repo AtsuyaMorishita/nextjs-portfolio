@@ -1,7 +1,7 @@
 import { COLOR } from "@/styles/variable";
 import Link from "next/link";
 import styled from "styled-components";
-import { blogType } from "../../../types/microCms";
+import { blogType } from "../../types/microCms";
 import SecTitle from "./SecTitle";
 import { mediaQuery } from "@/utils/breakpoints";
 

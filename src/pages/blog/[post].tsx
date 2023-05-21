@@ -1,10 +1,10 @@
 import { client } from "../../../libs/client";
 import { blogType } from "../../../types/microCms";
-import Aside from "../components/Aside";
-import BlogDetail from "../components/BlogDetail";
-import CategoryArea from "../components/CategoryArea";
-import Layout from "../components/Layout";
-import { Meta } from "../components/Meta";
+import Aside from "../../components/Aside";
+import BlogDetail from "../../components/BlogDetail";
+import CategoryArea from "../../components/CategoryArea";
+import Layout from "../../components/Layout";
+import { Meta } from "../../components/Meta";
 
 export default function BlogSlug({ blog, categories }: any) {
   return (

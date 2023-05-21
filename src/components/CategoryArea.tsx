@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import SecTitle from "./SecTitle";
-import { blogGetCategory, categoryType } from "../../../types/microCms";
+import { blogGetCategory, categoryType } from "../../types/microCms";
 import Link from "next/link";
 import { COLOR } from "@/styles/variable";
 import { mediaQuery } from "@/utils/breakpoints";

@@ -4,11 +4,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import Layout from "../components/Layout";
-import SecTitle from "../components/SecTitle";
+import Layout from "../../components/Layout";
+import SecTitle from "../../components/SecTitle";
 import styled from "styled-components";
 import { COLOR, FONT } from "@/styles/variable";
-import { Meta } from "../components/Meta";
+import { Meta } from "../../components/Meta";
 import { META_TITLE } from "@/data/meta";
 
 type Inputs = {

@@ -1,13 +1,13 @@
 import Head from "next/head";
-import SecTitle from "./components/SecTitle";
+import SecTitle from "../components/SecTitle";
 import { client } from "../../libs/client";
-import BlogList from "./components/BlogList";
+import BlogList from "../components/BlogList";
 import fetchBlogData from "@/utils/fetchBLogData";
 import { blogType } from "../../types/microCms";
-import CategoryArea from "./components/CategoryArea";
-import Layout from "./components/Layout";
-import Aside from "./components/Aside";
-import { Meta } from "./components/Meta";
+import CategoryArea from "../components/CategoryArea";
+import Layout from "../components/Layout";
+import Aside from "../components/Aside";
+import { Meta } from "../components/Meta";
 
 export default function Home({ blogs, categories }: any) {
   return (

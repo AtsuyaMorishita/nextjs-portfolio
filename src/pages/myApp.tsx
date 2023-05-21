@@ -1,7 +1,7 @@
 import { client } from "../../libs/client";
-import MyAppList from "./components/MyAppList";
-import Layout from "./components/Layout";
-import { Meta } from "./components/Meta";
+import MyAppList from "../components/MyAppList";
+import Layout from "../components/Layout";
+import { Meta } from "../components/Meta";
 import { META_TITLE } from "@/data/meta";
 
 export default function Home({ myApps }: any) {

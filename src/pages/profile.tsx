@@ -1,11 +1,11 @@
-import SecTitle from "./components/SecTitle";
-import Layout from "./components/Layout";
+import SecTitle from "../components/SecTitle";
+import Layout from "../components/Layout";
 import styled from "styled-components";
 import { COLOR } from "@/styles/variable";
 import Image from "next/image";
 import { mediaQuery } from "@/utils/breakpoints";
 import { META_TITLE } from "@/data/meta";
-import { Meta } from "./components/Meta";
+import { Meta } from "../components/Meta";
 
 export default function Profile() {
   return (

@@ -1,9 +1,9 @@
 import Link from "next/link";
-import Layout from "../components/Layout";
-import SecTitle from "../components/SecTitle";
+import Layout from "../../components/Layout";
+import SecTitle from "../../components/SecTitle";
 import styled from "styled-components";
 import { COLOR, FONT } from "@/styles/variable";
-import { Meta } from "../components/Meta";
+import { Meta } from "../../components/Meta";
 import { META_TITLE } from "@/data/meta";
 
 export default function Complete() {

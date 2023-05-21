@@ -3,10 +3,10 @@ import { useRouter } from "next/router";
 import { useContext } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import styled from "styled-components";
-import Layout from "../components/Layout";
-import SecTitle from "../components/SecTitle";
+import Layout from "../../components/Layout";
+import SecTitle from "../../components/SecTitle";
 import { COLOR, FONT } from "@/styles/variable";
-import { Meta } from "../components/Meta";
+import { Meta } from "../../components/Meta";
 import { META_TITLE } from "@/data/meta";
 
 type Inputs = {

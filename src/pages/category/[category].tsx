@@ -4,11 +4,11 @@ import {
   blogType,
   categoryType,
 } from "../../../types/microCms";
-import BlogList from "../components/BlogList";
+import BlogList from "../../components/BlogList";
 import { client } from "../../../libs/client";
-import Layout from "../components/Layout";
-import Aside from "../components/Aside";
-import { Meta } from "../components/Meta";
+import Layout from "../../components/Layout";
+import Aside from "../../components/Aside";
+import { Meta } from "../../components/Meta";
 
 export default function Home({ blogs, categories, categoryName }: any) {
   return (
