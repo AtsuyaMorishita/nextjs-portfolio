@@ -8,6 +8,7 @@ import CategoryArea from "../components/CategoryArea";
 import Layout from "../components/Layout";
 import Aside from "../components/Aside";
 import { Meta } from "../components/Meta";
+import { REVALIDATE_TIME } from "@/data/revalidate";
 
 export default function Home({ blogs, categories }: any) {
   return (
@@ -52,5 +53,6 @@ export const getStaticProps = async () => {
       blogs: data,
       categories: categories,
     },
+    revalidate: REVALIDATE_TIME,
   };
 };

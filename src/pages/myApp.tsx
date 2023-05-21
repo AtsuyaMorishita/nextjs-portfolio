@@ -3,6 +3,7 @@ import MyAppList from "../components/MyAppList";
 import Layout from "../components/Layout";
 import { Meta } from "../components/Meta";
 import { META_TITLE } from "@/data/meta";
+import { REVALIDATE_TIME } from "@/data/revalidate";
 
 export default function Home({ myApps }: any) {
   return (
@@ -24,5 +25,6 @@ export const getStaticProps = async () => {
     props: {
       myApps: microCmsData.contents,
     },
+    revalidate: REVALIDATE_TIME,
   };
 };

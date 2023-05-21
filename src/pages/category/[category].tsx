@@ -9,6 +9,7 @@ import { client } from "../../../libs/client";
 import Layout from "../../components/Layout";
 import Aside from "../../components/Aside";
 import { Meta } from "../../components/Meta";
+import { REVALIDATE_TIME } from "@/data/revalidate";
 
 export default function Home({ blogs, categories, categoryName }: any) {
   return (
@@ -23,15 +24,10 @@ export default function Home({ blogs, categories, categoryName }: any) {
 }
 
 export const getStaticPaths = async () => {
-  // const getCategoryData = await client.get({ endpoint: "category" });
   const microCmsData = await client.get({ endpoint: "blog" });
-
   const paths = microCmsData.contents.map(
     (content: any) => `/category/${content.category.id}`
   );
-  // const paths = getCategoryData.contents.map(
-  //   (content: categoryType) => `/category/${content.id}`
-  // );
   return { paths, fallback: false };
 };
 
@@ -76,5 +72,6 @@ export const getStaticProps = async (context: any) => {
       categories: categories,
       categoryName: currentCategoryName.catName,
     },
+    revalidate: REVALIDATE_TIME,
   };
 };

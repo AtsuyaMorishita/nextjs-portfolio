@@ -1,3 +1,4 @@
+import { REVALIDATE_TIME } from "@/data/revalidate";
 import { client } from "../../../libs/client";
 import { blogType } from "../../../types/microCms";
 import Aside from "../../components/Aside";
@@ -20,7 +21,6 @@ export default function BlogSlug({ blog, categories }: any) {
 
 export const getStaticPaths = async () => {
   const data = await client.get({ endpoint: "blog" });
-
   const paths = data.contents.map((content: blogType) => `/blog/${content.id}`);
   return { paths, fallback: false };
 };
@@ -58,5 +58,6 @@ export const getStaticProps = async (context: any) => {
       blog: microCmsDetailData,
       categories: categories,
     },
+    revalidate: REVALIDATE_TIME,
   };
 };
