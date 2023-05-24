@@ -5,8 +5,17 @@ import styled from "styled-components";
 import { COLOR, FONT } from "@/styles/variable";
 import { Meta } from "../../components/Meta";
 import { META_TITLE } from "@/data/meta";
+import { useContext, useEffect } from "react";
+import { FormContext } from "@/context/FormContext";
 
 export default function Complete() {
+  const [formData, setFormData] = useContext(FormContext);
+
+  useEffect(() => {
+    // フォームデータをリセット;
+    setFormData({});
+  }, []);
+
   return (
     <>
       <Meta title={META_TITLE.CONTACT} />
