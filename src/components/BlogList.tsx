@@ -10,7 +10,7 @@ const BlogList = ({ blogs, categoryName }: any) => {
     <BlogListArea>
       <SecTitle title={categoryName} />
       <BlogListWrap>
-        {blogs &&
+        {blogs.length ? (
           blogs.map((blog: blogType) => (
             <BlogListItem key={blog.id}>
               <BlogItemLink href={`/blog/${blog.id}`}>
@@ -26,7 +26,12 @@ const BlogList = ({ blogs, categoryName }: any) => {
                 </BlogItemInfo>
               </BlogItemLink>
             </BlogListItem>
-          ))}
+          ))
+        ) : (
+          <BlogNoneWrap>
+            <p>只今記事の準備中・・・</p>
+          </BlogNoneWrap>
+        )}
       </BlogListWrap>
     </BlogListArea>
   );
@@ -99,4 +104,15 @@ const BlogItemCategory = styled.span`
   font-size: 1.2rem;
   background-color: ${COLOR.SECONDARY};
   padding: 0.3em 1em;
+`;
+
+const BlogNoneWrap = styled.div`
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 14px;
+
+  ${mediaQuery[0]} {
+    font-size: 16px;
+  }
 `;
