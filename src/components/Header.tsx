@@ -6,17 +6,25 @@ const Header = () => {
   return (
     <HeaderArea>
       <HeaderLogoWrap>
-        <HeaderLogo href={"/"}>ATSUYA BLOG</HeaderLogo>
+        <HeaderLogo href={"/"} scroll={false}>
+          ATSUYA BLOG
+        </HeaderLogo>
       </HeaderLogoWrap>
       <HeaderNavList>
         <HeaderNavItem>
-          <HeaderNavLink href="/">BLOG</HeaderNavLink>
+          <HeaderNavLink href="/" scroll={false}>
+            BLOG
+          </HeaderNavLink>
         </HeaderNavItem>
         <HeaderNavItem>
-          <HeaderNavLink href="/myApp">MYAPP</HeaderNavLink>
+          <HeaderNavLink href="/myApp" scroll={false}>
+            MYAPP
+          </HeaderNavLink>
         </HeaderNavItem>
         <HeaderNavItem>
-          <HeaderNavLink href="/profile">PROFILE</HeaderNavLink>
+          <HeaderNavLink href="/profile" scroll={false}>
+            PROFILE
+          </HeaderNavLink>
         </HeaderNavItem>
       </HeaderNavList>
     </HeaderArea>

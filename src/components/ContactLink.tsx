@@ -7,7 +7,7 @@ import styled from "styled-components";
 const ContactLink = () => {
   return (
     <ContactWrap>
-      <LinkContact href={"/contact"}>
+      <LinkContact href={"/contact"} scroll={false}>
         CONTACT
         <LinkContactIcon
           src="/img/icon_link.png"

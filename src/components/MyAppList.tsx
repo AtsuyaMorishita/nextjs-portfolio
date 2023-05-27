@@ -14,8 +14,8 @@ const MyAppList = ({ myApp }: any) => {
       <SecLead text="個人学習で作成した制作物を紹介します" />
       <AppList>
         {myApp &&
-          myApp.map((elem: any) => (
-            <AppItem key={elem.id}>
+          myApp.map((elem: any, index: number) => (
+            <AppItem key={index}>
               <ImageWrap>
                 <ImageItem src={elem.img.url} fill alt={elem.title} />
               </ImageWrap>

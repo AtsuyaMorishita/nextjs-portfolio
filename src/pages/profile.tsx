@@ -6,75 +6,82 @@ import Image from "next/image";
 import { mediaQuery } from "@/utils/breakpoints";
 import { META_TITLE } from "@/data/meta";
 import { Meta } from "../components/Meta";
+import { motion } from "framer-motion";
 
 export default function Profile() {
   return (
     <>
       <Meta title={META_TITLE.PROFILE} />
-      <Layout isProfile>
-        <main>
-          <SecTitle title="PROFILE" />
-          <ProfileLead>
-            <ProfileLeadImage>
-              <ProfileLeadImageItem src="/img/img_profile.jpg" alt="" fill />
-            </ProfileLeadImage>
-            <ProfileLeadInfo>
-              <ProfileLeadName>モリアツ</ProfileLeadName>
-              <ProfileLeadText>
-                愛知県出身。現在は山口県のWeb制作会社に勤務。
-                <br />
-                Next.jsなどモダンな技術を使ったWebアプリ開発に興味があります。
-                <br />
-                23年の夏までに東京に転職予定です。
-              </ProfileLeadText>
-            </ProfileLeadInfo>
-          </ProfileLead>
-          <ProfileList>
-            <ProfileItem>
-              <ProfileInfoTitle>SKILL</ProfileInfoTitle>
-              <ProfileInfoText>
-                <ProfileInfoTextSubTitle>
-                  【言語 / フレームワーク】
-                </ProfileInfoTextSubTitle>
-                HTML（EJS） / CSS（SCSS） / Javascript（jQuery） / TypeScript /
-                React（Next.js）
-                <ProfileInfoTextSubTitle>【その他】</ProfileInfoTextSubTitle>
-                WordPress / microCMS / Shopify / Git / Github / Gulp / WebPack /
-                Vite / Firebase(CloudFirestore , Authentication) / Vercel /
-                Netlify
-              </ProfileInfoText>
-            </ProfileItem>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <Layout isProfile>
+          <main>
+            <SecTitle title="PROFILE" />
+            <ProfileLead>
+              <ProfileLeadImage>
+                <ProfileLeadImageItem src="/img/img_profile.jpg" alt="" fill />
+              </ProfileLeadImage>
+              <ProfileLeadInfo>
+                <ProfileLeadName>モリアツ</ProfileLeadName>
+                <ProfileLeadText>
+                  愛知県出身。現在は山口県のWeb制作会社に勤務。
+                  <br />
+                  Next.jsなどモダンな技術を使ったWebアプリ開発に興味があります。
+                  <br />
+                  23年の夏までに東京に転職予定です。
+                </ProfileLeadText>
+              </ProfileLeadInfo>
+            </ProfileLead>
+            <ProfileList>
+              <ProfileItem>
+                <ProfileInfoTitle>SKILL</ProfileInfoTitle>
+                <ProfileInfoText>
+                  <ProfileInfoTextSubTitle>
+                    【言語 / フレームワーク】
+                  </ProfileInfoTextSubTitle>
+                  HTML（EJS） / CSS（SCSS） / Javascript（jQuery） / TypeScript
+                  / React（Next.js）
+                  <ProfileInfoTextSubTitle>【その他】</ProfileInfoTextSubTitle>
+                  WordPress / microCMS / Shopify / Git / Github / Gulp / WebPack
+                  / Vite / Firebase(CloudFirestore , Authentication) / Vercel /
+                  Netlify
+                </ProfileInfoText>
+              </ProfileItem>
 
-            <ProfileItem>
-              <ProfileInfoTitle>HISTORY</ProfileInfoTitle>
-              <ProfileInfoText>
-                愛知県の私立大学を卒業後、商業(ショッピングモール)デベロッパーの業界にて、テナントの売上管理・改善提案や契約関連業務などに従事。
-                <br />
-                在職中は宅地建物取引士の資格も取得。
-                <br />
-                一方でWeb制作の仕事に興味を持ち、独学でのコーディングの学習を得て現在の会社に転職。
-                <br />
-                約2年間コーダーとしてECサイトやWebサイトのコーディング/実装を行う。
-                <br />
-                現在はNext.jsなどモダンな技術やアプリ開発に興味を持ち、都内でフロントエンドエンジニアになるため転職活動中。
-              </ProfileInfoText>
-            </ProfileItem>
+              <ProfileItem>
+                <ProfileInfoTitle>HISTORY</ProfileInfoTitle>
+                <ProfileInfoText>
+                  愛知県の私立大学を卒業後、商業(ショッピングモール)デベロッパーの業界にて、テナントの売上管理・改善提案や契約関連業務などに従事。
+                  <br />
+                  在職中は宅地建物取引士の資格も取得。
+                  <br />
+                  一方でWeb制作の仕事に興味を持ち、独学でのコーディングの学習を得て現在の会社に転職。
+                  <br />
+                  約2年間コーダーとしてECサイトやWebサイトのコーディング/実装を行う。
+                  <br />
+                  現在はNext.jsなどモダンな技術やアプリ開発に興味を持ち、都内でフロントエンドエンジニアになるため転職活動中。
+                </ProfileInfoText>
+              </ProfileItem>
 
-            <ProfileItem>
-              <ProfileInfoTitle>HOBBY</ProfileInfoTitle>
-              <ProfileInfoText>
-                スポーツをするのも見るのも好きです。特に小中野球をやっていたのでプロ野球が好きで、WBCは有給使って見るほど熱狂していました⚾️笑
-                <br />
-                最近は週末テニススクールに通っていて、初挑戦の競技ですがどハマりしています🎾
-                <br />
-                また海外旅行も好きで、学生時代は約1ヶ月東南アジアにバックパッカーをしたり、一人で台湾に行ったりしていました。(社会人になって行けてませんが、、)
-                <br />
-                好奇心旺盛な性格なので、基本的に新しいことをしたり、新しい場所に行ったりすることは全般好きです！
-              </ProfileInfoText>
-            </ProfileItem>
-          </ProfileList>
-        </main>
-      </Layout>
+              <ProfileItem>
+                <ProfileInfoTitle>HOBBY</ProfileInfoTitle>
+                <ProfileInfoText>
+                  スポーツをするのも見るのも好きです。特に小中野球をやっていたのでプロ野球が好きで、WBCは有給使って見るほど熱狂していました⚾️笑
+                  <br />
+                  最近は週末テニススクールに通っていて、初挑戦の競技ですがどハマりしています🎾
+                  <br />
+                  また海外旅行も好きで、学生時代は約1ヶ月東南アジアにバックパッカーをしたり、一人で台湾に行ったりしていました。(社会人になって行けてませんが、、)
+                  <br />
+                  好奇心旺盛な性格なので、基本的に新しいことをしたり、新しい場所に行ったりすることは全般好きです！
+                </ProfileInfoText>
+              </ProfileItem>
+            </ProfileList>
+          </main>
+        </Layout>
+      </motion.div>
     </>
   );
 }

@@ -9,15 +9,22 @@ import Layout from "../components/Layout";
 import Aside from "../components/Aside";
 import { Meta } from "../components/Meta";
 import { REVALIDATE_TIME } from "@/data/revalidate";
+import { motion } from "framer-motion";
 
 export default function Home({ blogs, categories }: any) {
   return (
     <>
       <Meta />
-      <Layout isBlog>
-        <BlogList blogs={blogs} categoryName="NEW" />
-        <Aside categories={categories} />
-      </Layout>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <Layout isBlog>
+          <BlogList blogs={blogs} categoryName="NEW" />
+          <Aside categories={categories} />
+        </Layout>
+      </motion.div>
     </>
   );
 }

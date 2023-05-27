@@ -37,7 +37,7 @@ const SecProfile = () => {
               <TwitterIcon />
             </ProfileIcon>
           </ProfileIconWrap>
-          <ProfileLinkBtn href="/profile">
+          <ProfileLinkBtn href="/profile" scroll={false}>
             View More
             <Image
               src="/img/icon_link.png"

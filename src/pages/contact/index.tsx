@@ -8,6 +8,7 @@ import SecTitle from "../../components/SecTitle";
 import { COLOR, FONT } from "@/styles/variable";
 import { Meta } from "../../components/Meta";
 import { META_TITLE } from "@/data/meta";
+import { motion } from "framer-motion";
 
 type Inputs = {
   name: string;
@@ -34,52 +35,58 @@ export default function Contact() {
   return (
     <>
       <Meta title={META_TITLE.CONTACT} />
-      <Layout isContact>
-        <SecTitle title="CONTACT" />
-        <FormList onSubmit={handleSubmit(onSubmit)}>
-          <FormItem>
-            <FormLabel htmlFor="name">名前</FormLabel>
-            <FormInput
-              id="name"
-              defaultValue={formData.name}
-              {...register("name", { required: true })}
-            />
-            {errors.name && <span>名前を入力してください。</span>}
-          </FormItem>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <Layout isContact>
+          <SecTitle title="CONTACT" />
+          <FormList onSubmit={handleSubmit(onSubmit)}>
+            <FormItem>
+              <FormLabel htmlFor="name">名前</FormLabel>
+              <FormInput
+                id="name"
+                defaultValue={formData.name}
+                {...register("name", { required: true })}
+              />
+              {errors.name && <span>名前を入力してください。</span>}
+            </FormItem>
 
-          <FormItem>
-            <FormLabel htmlFor="nameKana">名前(カナ)</FormLabel>
-            <FormInput
-              id="nameKana"
-              defaultValue={formData.nameKana}
-              {...register("nameKana")}
-            />
-          </FormItem>
+            <FormItem>
+              <FormLabel htmlFor="nameKana">名前(カナ)</FormLabel>
+              <FormInput
+                id="nameKana"
+                defaultValue={formData.nameKana}
+                {...register("nameKana")}
+              />
+            </FormItem>
 
-          <FormItem>
-            <FormLabel htmlFor="email">メールアドレス</FormLabel>
-            <FormInput
-              id="email"
-              defaultValue={formData.email}
-              {...register("email")}
-            />
-            {/* {errors.email && <span>メールアドレスを入力してください。</span>} */}
-          </FormItem>
+            <FormItem>
+              <FormLabel htmlFor="email">メールアドレス</FormLabel>
+              <FormInput
+                id="email"
+                defaultValue={formData.email}
+                {...register("email")}
+              />
+              {/* {errors.email && <span>メールアドレスを入力してください。</span>} */}
+            </FormItem>
 
-          <FormItem>
-            <FormLabel>お問い合わせ内容</FormLabel>
-            <FormTextArea
-              defaultValue={formData.content}
-              {...register("content")}
-            />
-            {/* {errors.content && <span>お問い合わせ内容を必須項目です</span>} */}
-          </FormItem>
+            <FormItem>
+              <FormLabel>お問い合わせ内容</FormLabel>
+              <FormTextArea
+                defaultValue={formData.content}
+                {...register("content")}
+              />
+              {/* {errors.content && <span>お問い合わせ内容を必須項目です</span>} */}
+            </FormItem>
 
-          <FormButtonWrap>
-            <FormButton type="submit">入力内容を確認する</FormButton>
-          </FormButtonWrap>
-        </FormList>
-      </Layout>
+            <FormButtonWrap>
+              <FormButton type="submit">入力内容を確認する</FormButton>
+            </FormButtonWrap>
+          </FormList>
+        </Layout>
+      </motion.div>
     </>
   );
 }
