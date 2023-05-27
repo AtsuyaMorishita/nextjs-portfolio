@@ -3,18 +3,20 @@ import { client } from "../../../libs/client";
 import { blogType } from "../../../types/microCms";
 import Aside from "../../components/Aside";
 import BlogDetail from "../../components/BlogDetail";
-import CategoryArea from "../../components/CategoryArea";
 import Layout from "../../components/Layout";
 import { Meta } from "../../components/Meta";
+import PageAnimeWrap from "@/components/PageAnimeWrap";
 
 export default function BlogSlug({ blog, categories }: any) {
   return (
     <>
       <Meta title={blog.title} />
-      <Layout isBlog>
-        <BlogDetail blog={blog} />
-        <Aside categories={categories} />
-      </Layout>
+      <PageAnimeWrap>
+        <Layout isBlog>
+          <BlogDetail blog={blog} />
+          <Aside categories={categories} />
+        </Layout>
+      </PageAnimeWrap>
     </>
   );
 }
@@ -43,7 +45,6 @@ export const getStaticProps = async (context: any) => {
   microCmsDetailData.date = formattedDate;
 
   //カテゴリ取得
-  // const categoryArray = await client.get({ endpoint: "category" });
   const microCmsData = await client.get({ endpoint: "blog" });
   //サイドバー カテゴリ用
   const categories = microCmsData.contents.map((elem: any) => {

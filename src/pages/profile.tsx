@@ -6,17 +6,13 @@ import Image from "next/image";
 import { mediaQuery } from "@/utils/breakpoints";
 import { META_TITLE } from "@/data/meta";
 import { Meta } from "../components/Meta";
-import { motion } from "framer-motion";
+import PageAnimeWrap from "@/components/PageAnimeWrap";
 
 export default function Profile() {
   return (
     <>
       <Meta title={META_TITLE.PROFILE} />
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
+      <PageAnimeWrap>
         <Layout isProfile>
           <main>
             <SecTitle title="PROFILE" />
@@ -81,7 +77,7 @@ export default function Profile() {
             </ProfileList>
           </main>
         </Layout>
-      </motion.div>
+      </PageAnimeWrap>
     </>
   );
 }

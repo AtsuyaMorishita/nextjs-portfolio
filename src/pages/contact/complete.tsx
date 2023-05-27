@@ -7,6 +7,7 @@ import { Meta } from "../../components/Meta";
 import { META_TITLE } from "@/data/meta";
 import { useContext, useEffect } from "react";
 import { FormContext } from "@/context/FormContext";
+import PageAnimeWrap from "@/components/PageAnimeWrap";
 
 export default function Complete() {
   const [formData, setFormData] = useContext(FormContext);
@@ -19,19 +20,21 @@ export default function Complete() {
   return (
     <>
       <Meta title={META_TITLE.CONTACT} />
-      <Layout isContact>
-        <SecTitle title="CONTACT" />
-        <FormCompWrap>
-          <FormCompText>
-            お問い合わせありがとうございます！
-            <br />
-            2.3営業日以内にご連絡いたします。
-          </FormCompText>
-          <FormCompLinkWrap>
-            <FormCompLink href={"/"}>TOPに戻る</FormCompLink>
-          </FormCompLinkWrap>
-        </FormCompWrap>
-      </Layout>
+      <PageAnimeWrap>
+        <Layout isContact>
+          <SecTitle title="CONTACT" />
+          <FormCompWrap>
+            <FormCompText>
+              お問い合わせありがとうございます！
+              <br />
+              2.3営業日以内にご連絡いたします。
+            </FormCompText>
+            <FormCompLinkWrap>
+              <FormCompLink href={"/"}>TOPに戻る</FormCompLink>
+            </FormCompLinkWrap>
+          </FormCompWrap>
+        </Layout>
+      </PageAnimeWrap>
     </>
   );
 }

@@ -8,7 +8,7 @@ import SecTitle from "../../components/SecTitle";
 import { COLOR, FONT } from "@/styles/variable";
 import { Meta } from "../../components/Meta";
 import { META_TITLE } from "@/data/meta";
-import { motion } from "framer-motion";
+import PageAnimeWrap from "@/components/PageAnimeWrap";
 
 type Inputs = {
   name: string;
@@ -35,11 +35,7 @@ export default function Contact() {
   return (
     <>
       <Meta title={META_TITLE.CONTACT} />
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
+      <PageAnimeWrap>
         <Layout isContact>
           <SecTitle title="CONTACT" />
           <FormList onSubmit={handleSubmit(onSubmit)}>
@@ -86,7 +82,7 @@ export default function Contact() {
             </FormButtonWrap>
           </FormList>
         </Layout>
-      </motion.div>
+      </PageAnimeWrap>
     </>
   );
 }

@@ -4,23 +4,19 @@ import Layout from "../components/Layout";
 import { Meta } from "../components/Meta";
 import { META_TITLE } from "@/data/meta";
 import { REVALIDATE_TIME } from "@/data/revalidate";
-import { motion } from "framer-motion";
+import PageAnimeWrap from "@/components/PageAnimeWrap";
 
 export default function Home({ myApps }: any) {
   return (
     <>
       <Meta title={META_TITLE.MYAPP} />
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
+      <PageAnimeWrap>
         <Layout>
           <main>
             <MyAppList myApp={myApps} />
           </main>
         </Layout>
-      </motion.div>
+      </PageAnimeWrap>
     </>
   );
 }

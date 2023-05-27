@@ -1,30 +1,22 @@
-import Head from "next/head";
-import SecTitle from "../components/SecTitle";
 import { client } from "../../libs/client";
 import BlogList from "../components/BlogList";
-import fetchBlogData from "@/utils/fetchBLogData";
 import { blogType } from "../../types/microCms";
-import CategoryArea from "../components/CategoryArea";
 import Layout from "../components/Layout";
 import Aside from "../components/Aside";
 import { Meta } from "../components/Meta";
 import { REVALIDATE_TIME } from "@/data/revalidate";
-import { motion } from "framer-motion";
+import PageAnimeWrap from "@/components/PageAnimeWrap";
 
 export default function Home({ blogs, categories }: any) {
   return (
     <>
       <Meta />
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
+      <PageAnimeWrap>
         <Layout isBlog>
           <BlogList blogs={blogs} categoryName="NEW" />
           <Aside categories={categories} />
         </Layout>
-      </motion.div>
+      </PageAnimeWrap>
     </>
   );
 }

@@ -1,24 +1,22 @@
-import Head from "next/head";
-import {
-  blogGetCategory,
-  blogType,
-  categoryType,
-} from "../../../types/microCms";
+import { blogGetCategory, blogType } from "../../../types/microCms";
 import BlogList from "../../components/BlogList";
 import { client } from "../../../libs/client";
 import Layout from "../../components/Layout";
 import Aside from "../../components/Aside";
 import { Meta } from "../../components/Meta";
 import { REVALIDATE_TIME } from "@/data/revalidate";
+import PageAnimeWrap from "@/components/PageAnimeWrap";
 
 export default function Home({ blogs, categories, categoryName }: any) {
   return (
     <>
       <Meta title={`「${categoryName}」の記事一覧`} />
-      <Layout isBlog>
-        <BlogList blogs={blogs} categoryName={categoryName} />
-        <Aside categories={categories} />
-      </Layout>
+      <PageAnimeWrap>
+        <Layout isBlog>
+          <BlogList blogs={blogs} categoryName={categoryName} />
+          <Aside categories={categories} />
+        </Layout>
+      </PageAnimeWrap>
     </>
   );
 }
