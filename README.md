@@ -1,4 +1,4 @@
-# Next.js × microCMS で Jamstack ポートフォリオ制作
+# Next.js × microCMS で Jamstack ブログ制作
 
 ## 機能
 
@@ -6,7 +6,7 @@
 - 制作実績(microCMS)
 - お問い合わせフォーム(Newt)
 
-## やりたい事・修正点
+## Todo
 
 - 検索機能
 - ページネーション
