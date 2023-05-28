@@ -12,9 +12,9 @@ const Header = () => {
       </HeaderLogoWrap>
       <HeaderNavList>
         <HeaderNavItem>
-          <HeaderNavLink href="/" scroll={false}>
+          <HeaderNavLinkBlog href="/" scroll={false}>
             BLOG
-          </HeaderNavLink>
+          </HeaderNavLinkBlog>
         </HeaderNavItem>
         <HeaderNavItem>
           <HeaderNavLink href="/myApp" scroll={false}>
@@ -75,4 +75,9 @@ const HeaderNavItem = styled.li`
 const HeaderNavLink = styled(Link)`
   display: block;
   width: 100%;
+`;
+
+const HeaderNavLinkBlog = styled(HeaderNavLink)`
+  pointer-events: none;
+  opacity: 0.4;
 `;

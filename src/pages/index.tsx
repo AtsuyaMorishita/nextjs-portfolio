@@ -6,16 +6,24 @@ import Aside from "../components/Aside";
 import { Meta } from "../components/Meta";
 import { REVALIDATE_TIME } from "@/data/revalidate";
 import PageAnimeWrap from "@/components/PageAnimeWrap";
+import MyAppList from "@/components/MyAppList";
 
-export default function Home({ blogs, categories }: any) {
+export default function Home({ blogs, categories, myApps }: any) {
   return (
     <>
       <Meta />
       <PageAnimeWrap>
-        <Layout isBlog>
+        {/* ブログを公開するまで記載 */}
+        <Layout>
+          <main>
+            <MyAppList myApp={myApps} />
+          </main>
+        </Layout>
+
+        {/* <Layout isBlog>
           <BlogList blogs={blogs} categoryName="NEW" />
           <Aside categories={categories} />
-        </Layout>
+        </Layout> */}
       </PageAnimeWrap>
     </>
   );
@@ -47,10 +55,16 @@ export const getStaticProps = async () => {
     };
   });
 
+  /**
+   * ブログを公開するまで記載
+   */
+  const microCmsWorksData = await client.get({ endpoint: "works" });
+
   return {
     props: {
       blogs: data,
       categories: categories,
+      myApps: microCmsWorksData.contents, //ブログを公開するまで記載
     },
     revalidate: REVALIDATE_TIME,
   };
