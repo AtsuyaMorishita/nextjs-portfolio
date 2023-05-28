@@ -46,7 +46,9 @@ export default function Contact() {
                 defaultValue={formData.name}
                 {...register("name", { required: true })}
               />
-              {errors.name && <span>名前を入力してください。</span>}
+              {errors.name && (
+                <ErrorMessage>名前を入力してください。</ErrorMessage>
+              )}
             </FormItem>
 
             <FormItem>
@@ -63,18 +65,25 @@ export default function Contact() {
               <FormInput
                 id="email"
                 defaultValue={formData.email}
-                {...register("email")}
+                type="email"
+                {...register("email", { required: true })}
               />
-              {/* {errors.email && <span>メールアドレスを入力してください。</span>} */}
+              {errors.email && (
+                <ErrorMessage>メールアドレスを入力してください。</ErrorMessage>
+              )}
             </FormItem>
 
             <FormItem>
               <FormLabel>お問い合わせ内容</FormLabel>
               <FormTextArea
                 defaultValue={formData.content}
-                {...register("content")}
+                {...register("content", { required: true })}
               />
-              {/* {errors.content && <span>お問い合わせ内容を必須項目です</span>} */}
+              {errors.content && (
+                <ErrorMessage>
+                  お問い合わせ内容を入力してください。
+                </ErrorMessage>
+              )}
             </FormItem>
 
             <FormButtonWrap>
@@ -146,4 +155,9 @@ const FormButton = styled.button`
   height: 48px;
   font-family: ${FONT.MAIN};
   cursor: pointer;
+`;
+
+const ErrorMessage = styled.span`
+  display: block;
+  color: #d94e4e;
 `;
