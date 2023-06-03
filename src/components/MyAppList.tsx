@@ -16,9 +16,11 @@ const MyAppList = ({ myApp }: any) => {
         {myApp &&
           myApp.map((elem: any, index: number) => (
             <AppItem key={index}>
-              <ImageWrap>
-                <ImageItem src={elem.img.url} fill alt={elem.title} />
-              </ImageWrap>
+              <ImageLink href={elem.link} target="_blank">
+                <ImageWrap>
+                  <ImageItem src={elem.img.url} fill alt={elem.title} />
+                </ImageWrap>
+              </ImageLink>
               <AppInfoWrap>
                 <AppTitleWrap>
                   <AppTitle>{elem.title}</AppTitle>
@@ -89,6 +91,16 @@ const AppItem = styled.li`
   }
 `;
 
+const ImageLink = styled(Link)`
+  display: block;
+  overflow: hidden;
+  &:hover {
+    img {
+      transform: scale(1.1);
+    }
+  }
+`;
+
 const ImageWrap = styled.figure`
   position: relative;
   width: 100%;
@@ -97,7 +109,7 @@ const ImageWrap = styled.figure`
 
 const ImageItem = styled(Image)`
   object-fit: contain;
-  /* border: 1px solid ${COLOR.SECONDARY}; */
+  transition: transform 0.3s;
 `;
 
 const AppInfoWrap = styled.div`
